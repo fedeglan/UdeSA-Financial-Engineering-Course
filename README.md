@@ -1,81 +1,122 @@
-# UdeSA – Financial Engineering I (F414) - Workshop
+# Financial Engineering I (F414) — Workshop
 
-This course introduces students to the **design, implementation, and evaluation of quantitative trading strategies** grounded in academic research and implemented with modern data and software tools.
+**Universidad de San Andrés**
 
-The course combines:
-
-- Academic finance literature
-- Systematic trading strategies
-- Quantitative modeling
-- Realistic backtesting
-- Portfolio construction
-- Production-level strategy design
-
-The goal is to bridge the gap between **financial research** and **real-world quantitative investment systems**.
+Instructor: Prof. Federico Glancszpigel
+Year: 2026
 
 ---
 
-# Course Philosophy
+# About This Repository
 
-Most successful quantitative investment strategies can be grouped into a small number of **core strategy families** used widely by hedge funds and asset managers.
+This repository contains the materials for the **practical sessions** of the course **Financial Engineering I (F414)**.
 
-In this course we study these strategies by:
+These sessions run **in parallel to the theoretical lectures** of the course.  
+While the theoretical lectures focus on financial models and theory, the workshop track focuses on **implementation and real-world applications**.
 
-1. Understanding the **economic intuition** behind them
-2. Translating the intuition into a **quantitative signal**
-3. Constructing a **systematic portfolio**
-4. Implementing a **realistic backtest**
-5. Replicating key results from the **academic literature**
-6. Discussing **limitations and robustness**
+The goal of the practical sessions is to teach students how to:
 
-Each lecture follows a common framework:
+- translate financial research into trading strategies
+- implement quantitative signals
+- construct systematic portfolios
+- build realistic backtesting systems
+- design production-level trading frameworks
 
-### 1. Conceptual structure
-
-- Economic hypothesis  
-- Why the anomaly exists  
-- Whether it is likely to persist  
-
-### 2. Signal construction
-
-- How the phenomenon is quantified
-- How we empirically test the hypothesis
-
-### 3. Portfolio construction
-
-- What we buy and sell given the signal
-
-### 4. Backtesting
-
-- Strategy pipeline
-- Dataset
-- Realistic transaction costs
-- Performance evaluation
-
-### 5. Paper replication
-
-Replicate key empirical results from the reference paper.
-
-### 6. Discussion and limitations
-
-- Robustness
-- Implementation constraints
-- Real-world risks
+These sessions function as a **quantitative research lab**, where students transform financial ideas into **working investment strategies**.
 
 ---
 
-# Course Structure
+# Practical Track Philosophy
 
-The course covers **eight major strategy families** used in systematic investing, followed by a lecture on **portfolio optimization and alpha combination**.
+A large fraction of systematic investment strategies used by hedge funds can be traced back to a **small number of core strategy families**.
+
+The practical track studies these strategies through the academic papers that introduced them and focuses on **implementing them in code**.
+
+Students repeatedly follow the same pipeline used by quantitative researchers.
+
+---
+
+# Strategy Development Pipeline
+
+Each practical lecture follows a structured workflow used in quantitative finance.
+
+## 1. Conceptual Framework
+
+- What anomaly or phenomenon is observed?
+- What economic hypothesis explains it?
+- Why might the anomaly persist?
+
+## 2. Quantitative Signal Construction
+
+- How do we measure the anomaly?
+- How do we test statistically that it exists?
+
+Examples of signals:
+
+- momentum = past returns
+- value = book-to-market
+- carry = interest rate differential
+- quality = profitability metrics
+
+## 3. Portfolio Construction
+
+Given a signal:
+
+- what do we buy?
+- what do we sell?
+
+Typical structures include:
+
+- long-short portfolios
+- market-neutral portfolios
+- factor portfolios
+
+## 4. Backtesting
+
+Each strategy is evaluated using a realistic backtest including:
+
+- transaction costs
+- turnover
+- realistic rebalancing
+- out-of-sample evaluation
+
+## 5. Paper Replication
+
+Students replicate the key empirical results from the academic paper discussed in class.
+
+## 6. Discussion and Limitations
+
+We analyze:
+
+- implementation challenges
+- robustness
+- model risk
+- real-world constraints
+
+---
+
+# Strategy Families Covered
+
+The practical track covers **eight major strategy families** widely used in systematic investing.
+
+- Trend Following (Time-Series Momentum)
+- Momentum (Cross-Sectional Momentum)
+- Value
+- Quality / Profitability
+- Low Volatility
+- Carry Trade
+- Volatility Risk Premium
+- Statistical Arbitrage
+
+These strategies represent the **core building blocks of quantitative investing**.
 
 ---
 
 # Lectures
 
-## Lecture 01 – Trend Following Strategies
+## Lecture 01 — Trend Following Strategies
 
-Theme:
-**Time-Series Momentum**
+Theme: **Time-Series Momentum**
 
 Reference paper:
 
@@ -84,18 +125,19 @@ Moskowitz, Ooi, Pedersen
 
 Topics:
 
-- Trend following intuition
-- Time-series momentum signal
-- Multi-asset strategies
-- Volatility scaling
+- trend following strategies
+- time-series momentum
+- multi-asset strategies
+- volatility scaling
 - CTA-style trading systems
+
+Folder: `Lecture 01 - Trend Following Strategies`
 
 ---
 
-## Lecture 02 – Factor Investing: Momentum
+## Lecture 02 — Factor Investing: Momentum
 
-Theme:
-**Cross-Sectional Momentum**
+Theme: **Cross-Sectional Momentum**
 
 Reference paper:
 
@@ -104,18 +146,19 @@ Jegadeesh & Titman
 
 Topics:
 
-- Momentum anomaly
-- Ranking strategies
-- Long-short portfolios
-- Momentum crashes
-- Volatility-managed momentum
+- momentum anomaly
+- ranking portfolios
+- long-short factor portfolios
+- momentum crashes
+- volatility-managed momentum
+
+Folder: `Lecture 02 - (Factor Investing) Momentum`
 
 ---
 
-## Lecture 03 – Factor Investing: Value
+## Lecture 03 — Factor Investing: Value
 
-Theme:
-**Value Investing**
+Theme: **Value Investing**
 
 Reference paper:
 
@@ -124,18 +167,18 @@ Fama & French
 
 Topics:
 
-- Value anomaly
-- Book-to-market signals
-- Portfolio sorting
-- Multi-factor models
-- Value vs momentum
+- value anomaly
+- book-to-market signals
+- factor portfolios
+- value vs growth
+
+Folder: `Lecture 03 - (Factor Investing) Value`
 
 ---
 
-## Lecture 04 – Factor Investing: Quality
+## Lecture 04 — Factor Investing: Quality
 
-Theme:
-**Profitability and Quality**
+Theme: **Profitability and Quality**
 
 Reference paper:
 
@@ -144,17 +187,18 @@ Novy-Marx
 
 Topics:
 
-- Profitability signals
-- Quality factor construction
-- Accounting-based signals
-- Quality-minus-junk portfolios
+- profitability signals
+- accounting-based factors
+- quality portfolios
+- Quality Minus Junk
+
+Folder: `Lecture 04 - (Factor Investing) Quality`
 
 ---
 
-## Lecture 05 – Factor Investing: Low Volatility
+## Lecture 05 — Factor Investing: Low Volatility
 
-Theme:
-**Low Risk Anomaly**
+Theme: **Low Risk Anomaly**
 
 Reference paper:
 
@@ -163,17 +207,18 @@ Frazzini & Pedersen
 
 Topics:
 
-- Low-volatility anomaly
-- Beta estimation
-- Levered low-beta portfolios
-- Risk parity intuition
+- low volatility anomaly
+- leverage constraints
+- beta estimation
+- defensive equity portfolios
+
+Folder: `Lecture 05 - (Factor Investing) Low Vol`
 
 ---
 
-## Lecture 06 – Carry Trade
+## Lecture 06 — Carry Trade
 
-Theme:
-**Currency Carry**
+Theme: **Currency Carry**
 
 Reference paper:
 
@@ -182,17 +227,18 @@ Lustig, Roussanov, Verdelhan
 
 Topics:
 
-- Interest rate differentials
+- interest rate differentials
 - FX carry strategies
-- Currency portfolios
-- Global risk factors
+- currency portfolios
+- global risk exposure
+
+Folder: `Lecture 06 - Carry Trade`
 
 ---
 
-## Lecture 07 – Volatility Risk Premium
+## Lecture 07 — Volatility Risk Premium
 
-Theme:
-**Selling Insurance in Financial Markets**
+Theme: **Volatility Risk Premium**
 
 Reference paper:
 
@@ -201,17 +247,18 @@ Bollerslev, Tauchen, Zhou
 
 Topics:
 
-- Implied vs realized volatility
-- Variance risk premium
-- VIX-based signals
-- Volatility timing
+- implied vs realized volatility
+- variance risk premium
+- VIX-based strategies
+- volatility timing
+
+Folder: `Lecture 07 - Volatility Risk Premium`
 
 ---
 
-## Lecture 08 – Statistical Arbitrage
+## Lecture 08 — Statistical Arbitrage
 
-Theme:
-**Mean Reversion and Relative Value**
+Theme: **Mean Reversion and Relative Value**
 
 Reference paper:
 
@@ -220,60 +267,81 @@ Gatev, Goetzmann, Rouwenhorst
 
 Topics:
 
-- Pairs trading
-- Cointegration intuition
-- Spread trading
-- Market-neutral portfolios
+- pairs trading
+- spread construction
+- mean reversion
+- market-neutral portfolios
+
+Folder: `Lecture 08 - Statistical Arbitrage`
 
 ---
 
-## Lecture 09 – Portfolio Optimization
+## Lecture 09 — Portfolio Optimization
 
-Theme:
-**Combining Alpha Signals**
+Theme: **Combining Alpha Signals**
+
+Reference paper:
+
+Clarke, Silva, Thorley  
+*Portfolio Constraints and the Fundamental Law of Active Management (2001)*
 
 Topics:
 
-- The Fundamental Law of Active Management
-- Information coefficient (IC)
-- Breadth and signal independence
-- Alpha diversification
-- Portfolio construction methods
+- Fundamental Law of Active Management
+- information coefficient
+- signal diversification
+- alpha portfolio construction
 
-Methods covered:
+Methods discussed:
 
-- Equal-weight portfolios
-- Risk parity
-- Mean-variance optimization
-- Volatility targeting
+- equal weight portfolios
+- risk parity
+- mean-variance optimization
+- volatility targeting
 
-Goal:
+Goal: Understand how **multiple weak signals can be combined to produce a strong portfolio**.
 
-Understand how **multiple weak signals can be combined to produce a strong portfolio**.
+Folder: `Lecture 09 - Portfolio Optimization`
 
 ---
 
 # Final Project
 
-Students will work in groups (up to **4 students**) to design a **production-level quantitative trading strategy** based on one of the strategy families studied in the course.
+Students will design and implement a **production-level quantitative trading strategy**.
 
-Project requirements include:
+## Groups
 
-- Literature review
-- Strategy design
-- Realistic backtesting
-- Robustness analysis
-- Production-grade implementation
+Maximum **4 students per group**.
 
-Students must build a framework capable of:
+## Strategy Choice
 
-- Running backtests
-- Monitoring performance
-- Logging trades
-- Connecting to a broker API
-- Executing trades automatically
+Each group must choose **one strategy family** studied in the course.
 
-More details are available in */Final Project*.
+## Literature Requirements
+
+The project must be based on:
+
+- the paper discussed in class
+- the complementary paper assigned as homework
+- two additional academic papers chosen by the group
+
+## System Requirements
+
+Students must build a **fully functional trading framework**.
+
+The system must allow users to:
+
+- run backtests
+- monitor performance
+- log trades
+- track portfolio performance
+- connect to a broker API
+- execute trades automatically
+
+The system must include either:
+
+- a CLI interface, or
+- a graphical user interface.
 
 ---
 
@@ -291,40 +359,38 @@ More details are available in */Final Project*.
     ├── Lecture 09 - Portfolio Optimization
 
 
-Each lecture contains:
+Each lecture folder contains:
 
-- notebooks
+- academic papers
+- lecture notes
+- replication notebooks
 - datasets
-- paper references
-- replication code
+- code examples
 
 ---
 
-# Tools Used in the Course
+# Tools Used
 
-Students are encouraged to use modern development tools including:
+The practical track uses modern quantitative research tools.
 
-- Python
-- Jupyter notebooks
-- Git
-- AI-assisted development tools (E.g: ChatGPT, Claude, Cursor, Codex, ClaudeCode, OpenClaw, etc.)
+Main stack:
+
+- Python  
+- pandas  
+- numpy  
+- matplotlib  
+- Jupyter notebooks  
+- Git / GitHub
 
 ---
 
 # Learning Outcomes
 
-By the end of the course students will be able to:
+By the end of the practical track students will be able to:
 
-- Translate financial research into systematic strategies
-- Implement robust backtesting pipelines
-- Evaluate strategy performance realistically
-- Understand the core sources of quantitative alpha
-- Combine signals into a diversified portfolio
-- Build deployable trading systems
-
----
-
-# Instructor
-
-Prof. Federico Glancszpigel
-Universidad de San Andrés
+- translate financial research into systematic strategies
+- implement realistic backtests
+- evaluate strategy performance critically
+- design diversified alpha portfolios
+- build deployable trading systems
+- understand the main drivers of quantitative investment returns
