@@ -1,0 +1,207 @@
+\documentclass[12pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{enumitem}
+\usepackage{hyperref}
+
+\title{Financial Engineering (F414) \\ Project Assignment}
+\author{Universidad de San Andrés}
+\date{2026}
+
+\begin{document}
+
+\maketitle
+
+\section*{Overview}
+
+\noindent The objective of this project is to design, implement, and evaluate a
+\textbf{production-level quantitative trading strategy} based on one of the
+strategy families studied during the course.
+
+\noindent Students will work in groups to translate academic research into a realistic,
+robust, and fully reproducible trading system.
+
+\section*{Group Size}
+
+\noindent Students must work in groups of \textbf{up to 4 members}.
+
+\section*{Strategy Families}
+
+\noindent Each group must select \textbf{one} of the following strategy families studied
+during the course:
+
+\begin{itemize}
+\item Trend Following (Time-Series Momentum)
+\item Momentum (Cross-Sectional Momentum)
+\item Value
+\item Quality
+\item Low Volatility
+\item Carry Trade
+\item Volatility Risk Premium
+\item Statistical Arbitrage
+\end{itemize}
+
+\section*{Literature Basis}
+
+\noindent Your strategy must be grounded in academic research. Each group must rely on:
+
+\begin{itemize}
+\item The \textbf{main paper} discussed in class
+\item The \textbf{complementary paper} assigned as homework
+\item \textbf{Two additional academic papers} of your choice related to the
+same strategy family
+\end{itemize}
+
+\noindent The goal is not merely to replicate the paper, but to build a realistic
+trading strategy inspired by the literature.
+
+\section*{Project Objectives}
+
+\noindent Each group must:
+
+\begin{enumerate}[label=\arabic*.]
+
+\item \textbf{Design a Production-Level Strategy}
+
+Construct a systematic trading strategy based on the chosen theme. This
+includes:
+
+\begin{itemize}
+\item Economic intuition behind the anomaly
+\item Quantitative signal construction
+\item Portfolio construction rules
+\item Risk management methodology
+\end{itemize}
+
+\item \textbf{Develop a Realistic Backtesting Framework}
+
+Your backtesting environment must be designed to resemble a real trading
+system. The framework must include:
+
+\begin{itemize}
+\item Data ingestion and preprocessing
+\item Realistic transaction costs
+\item Portfolio rebalancing rules
+\item Performance metrics (Sharpe ratio, drawdown, turnover, etc.)
+\end{itemize}
+
+\item \textbf{Perform Robustness Testing}
+
+Beyond the historical backtest, you must evaluate the robustness of the
+strategy through additional tests, such as:
+
+\begin{itemize}
+\item Scenario simulations
+\item Stress testing
+\item Parameter sensitivity analysis
+\item Out-of-sample testing
+\end{itemize}
+
+\item \textbf{Build a Usable Trading Framework}
+
+Your system must be runnable by any user. The framework should include
+either:
+
+\begin{itemize}
+\item A \textbf{Graphical User Interface (GUI)}, or
+\item A \textbf{Command Line Interface (CLI)}
+\end{itemize}
+
+The system must allow users to:
+
+\begin{itemize}
+\item Run backtests
+\item Monitor strategy performance
+\item Connect to a broker account (e.g., IBKR, Robinhood, etc.)
+\item Execute trades automatically
+\item Log and track executed trades
+\item Monitor the portfolio in real time
+\end{itemize}
+
+\end{enumerate}
+
+\section*{Use of AI Tools}
+
+\noindent Students are allowed to use AI-assisted development tools, including but not
+limited to:
+
+\begin{itemize}
+\item ChatGPT
+\item Claude
+\item Claude Code
+\item Cursor
+\item Codex
+\item OpenClaw
+\end{itemize}
+
+\noindent However, students must provide \textbf{transparency regarding their usage}.
+
+You must submit either:
+
+\begin{itemize}
+\item The full conversation logs with the LLMs used, or
+\item Screenshots documenting the interactions with the AI tools
+\end{itemize}
+
+\section*{Code Submission}
+
+\noindent All code and materials must be uploaded to a dedicated branch in the
+following GitHub repository:
+
+\begin{center}
+\url{https://github.com/fedeglan/UdeSA-Financial-Engineering-Course}
+\end{center}
+
+\noindent Each group will be assigned a branch corresponding to its
+\textbf{group number}. All project materials must be submitted there,
+including:
+
+\begin{itemize}
+\item Source code
+\item Documentation
+\item Data processing scripts
+\item Backtesting framework
+\item Instructions to run the system
+\end{itemize}
+
+\section*{Deadlines and Presentations}
+
+\textbf{Final submission deadline:} \textbf{June 1st, 2026}.
+
+\noindent All groups must have their complete project uploaded to the GitHub repository
+by this date.
+
+\noindent Following submission, each group will present their project during the
+scheduled presentation sessions.
+
+\noindent Each group will have \textbf{40 minutes} to:
+
+\begin{itemize}
+\item Present the final product
+\item Demonstrate the system in action
+\item Explain the strategy and its economic intuition
+\item Describe the development process and design decisions
+\item Discuss the robustness tests and performance results
+\end{itemize}
+
+\noindent There will be \textbf{four presentation dates}, with \textbf{two groups presenting
+per session}:
+
+\begin{itemize}
+\item June 3rd, 2026
+\item June 10th, 2026
+\item June 17th, 2026
+\item June 24th, 2026
+\end{itemize}
+
+\section*{Expected Deliverables}
+
+\begin{itemize}
+\item A working trading framework (GUI or CLI)
+\item A reproducible backtesting pipeline
+\item Documentation explaining the strategy and system architecture
+\item Academic references used
+\item Evidence of AI-assisted development (logs or screenshots)
+\end{itemize}
+
+\end{document}
