@@ -1,0 +1,190 @@
+# Datasets
+
+This folder contains the core datasets used across the course for financial analysis, asset pricing, backtesting, and empirical research.
+
+The files are stored in **Parquet** format for efficient loading and processing in Python (typically with `pandas` or `polars`).
+
+---
+
+## Files included
+
+- `company_financials.parquet`
+- `etf_prices.parquet`
+- `spx_prices.parquet`
+- `stocks_basic_info.parquet`
+- `us_stock_prices.parquet`
+
+---
+
+## 1. `company_financials.parquet`
+
+### Description
+Fundamental financial statement data for publicly traded companies.
+
+This dataset contains accounting information reported by each firm, including income statement, balance sheet, and cash flow statement items. It is intended for fundamental analysis, ratio construction, valuation work, and factor research.
+
+### Typical granularity
+- **One row per company per reporting period**
+
+### Main identifier
+- `symbol`
+
+### Key date fields
+- `announce_date`: date the report became public. Use as main date field to avoid lookahead bias.
+- `fperiod`: fiscal period label
+
+### Main contents
+This dataset includes variables such as:
+
+- **Income statement**
+  - `revenue`
+  - `cogs`
+  - `gross_profit`
+  - `sga_expenses`
+  - `ebit`
+  - `ebt`
+  - `net_income`
+  - `net_income_parent`
+  - `eps_basic`
+  - `eps_diluted`
+
+- **Balance sheet**
+  - `cash_and_equivalents`
+  - `accounts_receivable`
+  - `inventory`
+  - `current_assets`
+  - `ppe_net`
+  - `intangibles_net`
+  - `noncurrent_assets`
+  - `total_assets`
+  - `accounts_payable`
+  - `short_term_debt`
+  - `current_liabilities`
+  - `long_term_debt`
+  - `noncurrent_liabilities`
+  - `total_liabilities`
+  - `common_equity`
+  - `retained_earnings`
+  - `total_equity`
+
+- **Cash flow statement**
+  - `operating_cf`
+  - `investing_cf`
+  - `financing_cf`
+  - `capex_total`
+  - `dividends_paid`
+  - `stock_common_buyback`
+  - `debt_net`
+  - `stock_net`
+  - `net_change_cash`
+
+### Notes
+- Some fields may be missing for certain companies or periods.
+- Reporting frequency may vary across firms and time.
+
+---
+
+## 2. `us_stock_prices.parquet`
+
+### Description
+Historical price data for U.S. listed stocks.
+
+This dataset contains market prices and trading activity for individual stocks and is the main source for return calculations, volatility estimation, momentum signals, and backtesting.
+
+### Typical granularity
+- **One row per symbol per trading day**
+
+### Main identifier
+- `symbol`
+
+### Main date field
+- `date`
+
+### Main contents
+- `open_price`
+- `high_price`
+- `low_price`
+- `close_price`
+- `volume_in_units`
+
+### Notes
+- Prices are adjusted (contemplate splits, dividends and other events that might distorted them in the past).
+- When joining with company-level datasets, use `symbol` carefully since tickers can change over time.
+
+---
+
+## 3. `spx_prices.parquet`
+
+### Description
+Historical price data for the **S&P 500 Index (SPX)**.
+
+This dataset serves as a benchmark series for market comparison, beta estimation, and performance attribution.
+
+### Typical granularity
+- **One row per trading day**
+
+### Main date field
+- `date`
+
+### Main contents
+- `open_price`
+- `high_price`
+- `low_price`
+- `close_price`
+- `volume_in_units`
+---
+
+## 4. `etf_prices.parquet`
+
+### Description
+Historical price data for exchange-traded funds (ETFs).
+
+This dataset is useful for market regime analysis, sector and style rotation, macro proxies, asset allocation exercises, and tradable benchmark construction.
+
+### Typical granularity
+- **One row per ETF per trading day**
+
+### Main date field
+- `date`
+
+### Main contents
+Columns are labeled as stock symbols. Ex: 'AAPL', 'MSFT', 'A', etc. 
+Each column correspond to the close price for that stock in the index's date.
+
+### Notes
+- Prices are adjusted.
+
+---
+
+## 5. `stocks_basic_info.parquet`
+
+### Description
+Reference metadata for U.S. stocks.
+
+This dataset contains descriptive and classification information about each company or listed instrument. It is useful for universe construction, filtering, grouping, and enriching analysis outputs.
+
+### Typical granularity
+- **One row per symbol**
+
+### Main identifier
+- `symbol`
+
+### Main contents
+Likely includes fields such as:
+
+- `company_name`
+- `exchange`
+- `country`
+- `sector`
+- `industry`
+- `sub_industry`
+- `description`
+- `instrument_type`
+- `currency`
+- `listing_date`
+- `shares_outstanding`
+
+### Important notes
+- Fields such as `shares_outstanding` may represent a **snapshot** rather than a full history. However, given there is no historical shares_outstanding dataset, you can assume them constant to calculate market cap in time.
+
+---
