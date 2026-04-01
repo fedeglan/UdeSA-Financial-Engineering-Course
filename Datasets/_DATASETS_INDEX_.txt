@@ -188,3 +188,101 @@ Likely includes fields such as:
 - Fields such as `shares_outstanding` may represent a **snapshot** rather than a full history. However, given there is no historical shares_outstanding dataset, you can assume them constant to calculate market cap in time.
 
 ---
+
+---
+
+## 6. `fx_rates.parquet`
+
+### Description
+Historical foreign exchange rate data for a broad set of currencies.
+
+This dataset is useful for currency conversion, international return normalization, macro-financial analysis, cross-country comparisons, and any workflow that requires mapping local-currency values into a common base currency.
+
+### Typical granularity
+- **One row per currency-country pair per month-end**
+
+### Main identifiers
+- `currency`
+- `country_code`
+
+### Main date field
+- `date`
+
+### Main contents
+- `currency`
+- `country_code`
+- `country`
+- `fx_rate_per_usd`
+
+### Field interpretation
+- `fx_rate_per_usd`: units of local currency per 1 U.S. dollar
+
+### Notes
+- Observations are stored at **month-end frequency**.
+- This is the main dataset to use when converting local-currency series into USD.
+- Some currencies are shared by multiple countries or monetary areas, so the same `currency` may appear with different `country` values.
+- Be careful with inversion: this dataset is stored as **local currency per USD**, not USD per local currency.
+- Coverage starts vary across currencies and countries.
+
+---
+
+## 7. `interest_rates.parquet`
+
+### Description
+Historical central bank policy rate data for a set of countries/currencies.
+
+This dataset is useful for macro analysis, monetary policy studies, carry-related research, regime detection, and cross-country comparisons of interest-rate environments.
+
+### Typical granularity
+- **One row per currency per observation date**
+
+### Main identifier
+- `currency`
+
+### Main date field
+- `date`
+
+### Main contents
+- `currency`
+- `country_or_area`
+- `policy_rate_pct`
+
+### Field interpretation
+- `policy_rate_pct`: policy interest rate expressed in percentage points
+
+### Notes
+- This dataset contains **policy rates**, not bond yields, deposit rates, or broad money-market curves.
+- Observation frequency is generally **daily**, although the effective change frequency depends on the central bank and country.
+- Coverage is not universal across all currencies in the project; some currencies may have no corresponding rate history.
+- Start dates vary substantially by country.
+- When merging with FX or price datasets, align carefully on `date` to avoid accidental forward-looking joins.
+
+---
+
+## 8. `vix_prices.parquet`
+
+### Description
+Historical price data for the **CBOE Volatility Index (VIX)**.
+
+This dataset contains the daily history of the VIX, which is widely used as a market-based proxy for expected equity volatility and risk sentiment.
+
+### Typical granularity
+- **One row per trading day**
+
+### Main date field
+- `date`
+
+### Main contents
+- `open`
+- `high`
+- `low`
+- `close`
+
+### Notes
+- The VIX is an index, not a tradable asset.
+- The `close` field is typically the main series used in research and empirical work.
+- This dataset is especially useful when combined with `spx_prices.parquet` to study the relationship between market returns and expected volatility.
+- Daily VIX data can be used to construct monthly or quarterly predictors by applying end-of-period sampling or aggregation rules, depending on the use case.
+- When using the VIX in predictive regressions or backtests, make sure the feature is aligned properly in time to avoid lookahead bias.
+
+---

@@ -207,3 +207,10 @@ marimo/_lsp/
 __marimo__/
 instructions.txt
 notebook.ipynb
+.professor
+.claude
+Lecture 05 - (Factor Investing) Low Vol/Lecture 05 content.ipynb
+Lecture 06 - Carry Trade/Lecture 06 content.ipynb
+Lecture 07 - Volatility Risk Premium/Lecture 07 content.ipynb
+Lecture 08 - Statistical Arbitrage/Lecture 08 content.ipynb
+Lecture 09 - Portfolio Optimization/Lecture 09 content.ipynb
